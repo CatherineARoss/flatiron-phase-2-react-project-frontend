@@ -1,16 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const FiberVibesListings = () => {
-  let listings = []; 
+  const [listings, setListings] = useState([]) 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch('http://localhost:3000/listings');
         const jsonData = await response.json();
-        
-        console.log(jsonData); 
-        return jsonData; 
+        setListings(jsonData); 
       } catch (error) {
         console.error('Error fetching data:', error);
         return null;
