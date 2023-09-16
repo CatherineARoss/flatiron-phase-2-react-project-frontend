@@ -1,4 +1,5 @@
-import FiberVibesListings from ".FiberVibesListings";
+import React from "react";
+import FiberVibesListings from "./FiberVibesListings";
 
 const Main = () => {
     return (
