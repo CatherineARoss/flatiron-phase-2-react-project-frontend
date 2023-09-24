@@ -1,5 +1,5 @@
 .listing-image {
-    width: 300px; /* Set your desired width */
-    height: 300px; /* Set your desired height */
-    object-fit: cover; /* Optional: adjust how the image is resized */
+    width: 300px; 
+    height: 300px; 
+    object-fit: cover; 
   }
