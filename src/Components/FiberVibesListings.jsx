@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+
 const FiberVibesListings = () => {
   const [listings, setListings] = useState([]) 
 
@@ -20,16 +21,16 @@ const FiberVibesListings = () => {
 
   return (
     <div className="card-container">
-      <h2>Listings:</h2>
+      <h2>Listings</h2>
       <div className="cards">
         {listings.map(listing => (
           <div className="card" key={listing.id}>
             <img src={listing.image} alt={listing.title} />
             <div className="card-content">
               <h3>{listing.title}</h3>
-              <p>Description: {listing.description}</p>
-              <p>Materials: {listing.materials}</p>
-              <p>Price: ${listing.price}</p>
+              <p><strong>Description:</strong> {listing.description}</p>
+              <p><strong>Materials:</strong> {listing.materials}</p>
+              <p><strong>Price:</strong> ${listing.price}</p>
             </div>
           </div>
         ))}

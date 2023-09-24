@@ -5,7 +5,7 @@ const Main = () => {
     return (
         <>
             <main>
-                <h2>The main content</h2>
+                <h2>Handmade Home Decor, Clothing, and Crochet & Knit Patterns</h2>
                 <FiberVibesListings />
             </main>
         </>
