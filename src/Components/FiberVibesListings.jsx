@@ -19,13 +19,21 @@ const FiberVibesListings = () => {
   }, []); 
 
   return (
-    <div>
+    <div className="card-container">
       <h2>Listings:</h2>
-      <ul>
+      <div className="cards">
         {listings.map(listing => (
-          <li key={listing.id}>{listing.title}</li>
+          <div className="card" key={listing.id}>
+            <img src={listing.image} alt={listing.title} />
+            <div className="card-content">
+              <h3>{listing.title}</h3>
+              <p>Description: {listing.description}</p>
+              <p>Materials: {listing.materials}</p>
+              <p>Price: ${listing.price}</p>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
