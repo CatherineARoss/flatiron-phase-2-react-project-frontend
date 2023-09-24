@@ -1,47 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
-    const emailElement = document.querySelector('#email');
-const messageElement = document.querySelector('#message');
-const submitButton = document.querySelector('#submit-button');
-submitButton.addEventListener('click', function (e) {
-  e.preventDefault();
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
 
-  const emailValue = emailElement.value;
-  const messageValue = messageElement.value;
+  const handleMessageChange = (event) => {
+    setMessage(event.target.value);
+  };
 
-  console.log('Email: ', emailValue);
-  console.log('Message: ', messageValue);
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-  if (emailValue.includes('@')) {
-    alert('Thank You');
-  } else {
-    alert('Please enter a valid email address.');
-  }
-});
+    if (email.includes('@')) {
+      alert('Thank You');
+    } else {
+      alert('Please enter a valid email address.');
+    }
+  };
 
-    return (
-        <footer>
-            <div className="contact-us">
-                <h4>Contact Us</h4>
-                <form>
-                    <label htmlFor="email">
-                        Email:
-                        <input id="email" type="email" placeholder="Enter your Email" />
-                    </label>
-                    <br></br>
-                    <label htmlFor="message">
-                        Ask a question:
-                        <textarea id="message" placeholder="Your Message"></textarea>
-                    </label>
-                    <div className="submit-button-wrapper">
-                        <button id="submit-button" type="submit" value="Submit">Submit</button>
-                    </div>
-                </form>
-            </div>
-        </footer>
-    )
-}
+  return (
+    <footer>
+      <div className="contact-us">
+        <h4>Contact Us</h4>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="email">
+            Email:
+            <input
+              id="email"
+              type="email"
+              placeholder="Enter your Email"
+              value={email}
+              onChange={handleEmailChange}
+            />
+          </label>
+          <br />
+          <label htmlFor="message">
+            Ask a question:
+            <textarea
+              id="message"
+              placeholder="Your Message"
+              value={message}
+              onChange={handleMessageChange}
+            ></textarea>
+          </label>
+          <div className="submit-button-wrapper">
+            <button id="submit-button" type="submit" value="Submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;
