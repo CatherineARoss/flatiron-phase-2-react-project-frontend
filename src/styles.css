@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
+.nav{
+    background-color: rgb(8, 166, 171);
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav a{
+    text-decoration: none;
+}
+
+.site-title{
+    color: rgb(8, 166, 171);
+    align-items: center;
+    font-size: 2rem;
+}

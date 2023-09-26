@@ -2,18 +2,15 @@ import React from "react";
 
 const NavBar = () => {
     return (
-        <>
-            <header>
-                <h1>Fiber Vibes</h1>
-                <nav>
-                    <ul>
-                        <li><a href="#some-id1">Link Title 1</a></li>
-                        <li><a href="#some-id2">Link Title 2</a></li>
-                        <li><a href="#some-id3">Link Title 3</a></li>
-                    </ul>
+        <header>
+            <h1 className="site-title">Fiber Vibes</h1>
+                <nav className="nav">  
+                    <a href='/'>Home</a>
+                    <a href='/about'>About</a>
+                    <a href='/cart'>Cart</a>
                 </nav>
-            </header>
-        </>
+        </header>
+    
     )
 }
 
