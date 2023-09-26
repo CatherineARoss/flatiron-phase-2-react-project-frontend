@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Header from './Header';
+import NavBar from './NavBar';
 import Main from './Main';
 import Footer from './Footer';
 
@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <NavBar />
       <Main />
       <Footer />
     </>
