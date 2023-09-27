@@ -31,7 +31,7 @@ const FiberVibesListings = () => {
 
   return (
     <div className="card-container">
-      <h2>Listings</h2>
+      <h1>Listings</h1>
       <div className="cards">
         {listings.map((listing, index) => (
           <div className="card" key={listing.id}>
@@ -40,8 +40,10 @@ const FiberVibesListings = () => {
               <h2>{listing.title}</h2>
               <p><strong>Description:</strong> {listing.description}</p>
               <p><strong>Materials:</strong> {listing.materials}</p>
-              <p><strong>Price:</strong> ${listing.price}</p>
-              <button>Add to Cart</button>
+              <p className='price'><strong>Price:</strong> ${listing.price}</p>
+              <button className="cart-button" type="submit" value="Submit">
+              Add to Cart
+            </button>
             </div>
           </div>
         ))}
