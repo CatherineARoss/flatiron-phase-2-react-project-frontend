@@ -29,6 +29,7 @@ const Footer = () => {
         <form onSubmit={handleSubmit}>
           <label htmlFor="email">
             Email:
+            <br />
             <input
               id="email"
               type="email"
@@ -39,7 +40,8 @@ const Footer = () => {
           </label>
           <br />
           <label htmlFor="message">
-            Ask a question:
+            Request a Custom Order:
+            <br />
             <textarea
               id="message"
               placeholder="Your Message"

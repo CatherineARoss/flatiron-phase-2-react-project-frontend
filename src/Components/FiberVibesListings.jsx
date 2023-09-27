@@ -5,7 +5,7 @@ import HoundHoodies from '../images/HoundHoodies.jpg';
 import ChunkyKnitBeanie from '../images/ChunkyKnitBeanie.jpg';
 import CelticWovenBabyBlanket from '../images/CelticWovenBabyBlanket.jpg';
 import KnitPumpkins from '../images/KnitPumpkins.jpg';
-import '../FiberVibesListings.css';
+
 
 
 const FiberVibesListings = () => {
