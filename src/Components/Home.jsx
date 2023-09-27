@@ -6,10 +6,11 @@ const Home = () => {
         <>
             <main>
               <div className="home">
-                <h3>Handmade Home Decor, Clothing, and Crochet & Knit Patterns</h3>
+                <h2>Handmade Home Decor, Clothing, and Crochet & Knit Patterns</h2>
                 <p><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>5 Stars</p>
                 <p>1,782 Sales</p>
               </div>
+              <hr></hr>
                 <FiberVibesListings />
             </main>
             </>
