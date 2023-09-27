@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import NavBar from './NavBar';
-import Main from './Main';
 import Footer from './Footer';
 import Home from './Home'; 
 import About from './About'; 
@@ -16,8 +15,7 @@ function App() {
         <Route exact path="/about" component={About} />
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/" component={Home} />
-      </Switch>
-      <Main />
+      </Switch> 
       <Footer />
     </div>
   );
