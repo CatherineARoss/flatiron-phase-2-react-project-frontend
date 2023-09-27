@@ -35,12 +35,13 @@ const FiberVibesListings = () => {
       <div className="cards">
         {listings.map((listing, index) => (
           <div className="card" key={listing.id}>
-            <img src={images[index]} alt={listing.title} className="listing-image"/>  {/* Use the corresponding image */}
+            <img src={images[index]} alt={listing.title} className="listing-image"/>  
             <div className="card-content">
               <h3>{listing.title}</h3>
               <p><strong>Description:</strong> {listing.description}</p>
               <p><strong>Materials:</strong> {listing.materials}</p>
               <p><strong>Price:</strong> ${listing.price}</p>
+              <button>Add to Cart</button>
             </div>
           </div>
         ))}
