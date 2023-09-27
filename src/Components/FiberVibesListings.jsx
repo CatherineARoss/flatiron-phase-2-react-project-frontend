@@ -7,8 +7,6 @@ import ChunkyKnitBeanie from '../images/ChunkyKnitBeanie.jpg';
 import CelticWovenBabyBlanket from '../images/CelticWovenBabyBlanket.jpg';
 import KnitPumpkins from '../images/KnitPumpkins.jpg';
 
-
-
 const FiberVibesListings = () => {
   const { addToCart } = useContext(CartContext);
 
@@ -24,7 +22,11 @@ const FiberVibesListings = () => {
       try {
         const response = await fetch('http://localhost:3000/listings');
         const jsonData = await response.json();
-        setListings(jsonData); 
+        const listingsWithImages = jsonData.map((listing, index) => ({
+          ...listing,
+          image: [WinterIsHereBlanket, WestCoasters, HoundHoodies, ChunkyKnitBeanie, CelticWovenBabyBlanket, KnitPumpkins][index],
+        }));
+        setListings(listingsWithImages);
       } catch (error) {
         console.error('Error fetching data:', error);
         return null;
@@ -34,18 +36,13 @@ const FiberVibesListings = () => {
     fetchData();
   }, []); 
 
- 
-  const images = [WinterIsHereBlanket, WestCoasters, HoundHoodies, ChunkyKnitBeanie, CelticWovenBabyBlanket, KnitPumpkins];
-
- 
-
   return (
     <div className="card-container">
       <h1>Listings</h1>
       <div className="cards">
-        {listings.map((listing, index) => (
+        {listings.map((listing) => (
           <div className="card" key={listing.id}>
-            <img src={images[index]} alt={listing.title} className="listing-image"/>  
+            <img src={listing.image} alt={listing.title} className="listing-image"/>  
             <div className="card-content">
               <h2>{listing.title}</h2>
               <p><strong>Description:</strong> {listing.description}</p>
