@@ -29,6 +29,10 @@ const FiberVibesListings = () => {
  
   const images = [WinterIsHereBlanket, WestCoasters, HoundHoodies, ChunkyKnitBeanie, CelticWovenBabyBlanket, KnitPumpkins];
 
+  const handleAddToCart = (listing) => {
+    console.log('Item added to cart:', listing.title);
+  };
+
   return (
     <div className="card-container">
       <h1>Listings</h1>
@@ -41,9 +45,9 @@ const FiberVibesListings = () => {
               <p><strong>Description:</strong> {listing.description}</p>
               <p><strong>Materials:</strong> {listing.materials}</p>
               <p className='price'><strong>Price:</strong> ${listing.price}</p>
-              <button className="cart-button" type="submit" value="Submit">
-              Add to Cart
-            </button>
+              <button className="cart-button" onClick={() => handleAddToCart(listing)}>
+                Add to Cart
+              </button>
             </div>
           </div>
         ))}
