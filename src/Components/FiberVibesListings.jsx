@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { CartContext } from './CartContext';
 import WinterIsHereBlanket from '../images/WinterIsHereBlanket.jpg';  
 import WestCoasters from '../images/WestCoasters.jpg';
 import HoundHoodies from '../images/HoundHoodies.jpg';
@@ -9,6 +10,13 @@ import KnitPumpkins from '../images/KnitPumpkins.jpg';
 
 
 const FiberVibesListings = () => {
+  const { addToCart } = useContext(CartContext);
+
+  const handleAddToCart = (listing) => {
+    addToCart(listing);
+    console.log('Item added to cart:', listing.title);
+  };
+
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
@@ -29,9 +37,7 @@ const FiberVibesListings = () => {
  
   const images = [WinterIsHereBlanket, WestCoasters, HoundHoodies, ChunkyKnitBeanie, CelticWovenBabyBlanket, KnitPumpkins];
 
-  const handleAddToCart = (listing) => {
-    console.log('Item added to cart:', listing.title);
-  };
+ 
 
   return (
     <div className="card-container">
