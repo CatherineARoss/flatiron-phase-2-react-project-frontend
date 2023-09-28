@@ -133,6 +133,7 @@ form input [type="submit"] {
     width: 100%; 
     height: 350px; 
     object-fit: cover; 
+    border-radius: 10px;
   }
 
 .card-container{
@@ -157,7 +158,7 @@ form input [type="submit"] {
     background-color: aliceblue;
 }
 
-.card h3{
+.card h3, h4 {
     color: rgb(79, 101, 102);
     font-family: 'Leelawadee UI';
 }
@@ -170,4 +171,69 @@ form input [type="submit"] {
 
 .price{
     position: absolute; left: 25px; bottom: 15px;
+}
+
+/*Cart Component*/
+.cart-item {
+    font-family: 'Leelawadee UI';
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3rem;
+    gap: 2rem;
+    margin: auto;
+    align-items: center;
+}
+
+.cart-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cart-details {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    gap: 2rem;
+    margin: 2rem;
+    align-items: center;
+}
+
+.cart-title {
+    color: rgb(79, 101, 102);
+    font-family: 'Leelawadee UI'; 
+    text-align: center;
+    
+}
+
+.total-price{
+    text-align: right;
+    padding-right: 4rem;
+}
+
+.checkout-button{
+    background-color: #1C315E;
+    color: whitesmoke;
+    float: right;
+    margin-right: 70px;
+}
+
+@media (min-width: 768px) {
+    .cart-item {
+        width: auto;
+    }
+    
+    .cart-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .cart-price, .cart-item-title {
+        display: inline-block;
+        justify-content: space-between;
+        flex-grow: unset; 
+    }
 }
