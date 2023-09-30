@@ -4,7 +4,6 @@ import { CartContext } from './CartContext';
 const Cart = () => {
   const { cart } = useContext(CartContext);
 
-  
   const total = cart.reduce((acc, item) => acc + item.price, 0);
 
   return (
@@ -15,9 +14,8 @@ const Cart = () => {
           <div key={item.id} className="cart-item">
             <img className='cart-image' src={item.image} alt={item.title} />
             <div className='cart-details'>
-              <h4 className='cart-item-title'><strong>{item.title}</strong></h4>
+              <h4 className='cart-title'><strong>{item.title}</strong></h4>
               <p className='cart-price'><strong>Price: $</strong>{item.price}</p>
-              <br></br>
             </div>
           </div>
         ))}
