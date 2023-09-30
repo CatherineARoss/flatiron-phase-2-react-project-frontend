@@ -1,31 +1,69 @@
 import React, { useState } from 'react';
+import CustomOrder from '../images/CustomOrder.jpg';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [materials, setMaterials] = useState('');
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
 
-  const handleMessageChange = (event) => {
-    setMessage(event.target.value);
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleDescriptionChange = (event) => {
+    setDescription(event.target.value);
+  };
+
+  const handleMaterialsChange = (event) => {
+    setMaterials(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (email.includes('@')) {
-      alert('Thank You');
+        const newListing = {
+            email,
+            name,
+            description,
+            materials,
+            image: CustomOrder,
+            price: 10,
+          };
+        
+
+      fetch('http://localhost:3000/listings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newListing),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('Success:', data);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          alert('An error occurred. Please try again later.');
+        });
+        setFormSubmitted(true);
     } else {
       alert('Please enter a valid email address.');
     }
   };
 
   return (
-    <footer>
-      <div className="contact-us">
-        <h4>Contact Us</h4>
+    <div className='contact-us'>
+      <div>
+        <h2>Custom Order</h2>
         <form onSubmit={handleSubmit}>
           <label htmlFor="email">
             Email:
@@ -39,25 +77,60 @@ const Footer = () => {
             />
           </label>
           <br />
-          <label htmlFor="message">
-            Request a Custom Order:
+          <label htmlFor="name">
+            Your Name:
             <br />
             <textarea
-              id="message"
-              placeholder="Your Message"
-              value={message}
-              onChange={handleMessageChange}
+              id="name"
+              placeholder="Your Name"
+              value={name}
+              onChange={handleNameChange}
             ></textarea>
           </label>
-          <div className="submit-button-wrapper">
-            <button id="submit-button" type="submit" value="Submit">
+          <br />
+          <label htmlFor="description">
+            Description:
+            <br />
+            <textarea
+              id="description"
+              placeholder="Description of what you would like made."
+              value={description}
+              onChange={handleDescriptionChange}
+            ></textarea>
+          </label>
+          <br />
+          <label htmlFor="materials">
+            Materials:
+            <br />
+            <textarea
+              id="materials"
+              placeholder="Specific materials you want used?"
+              value={materials}
+              onChange={handleMaterialsChange}
+            ></textarea>
+          </label>
+          <br />
+          <button id="submit-button" type="submit" value="Submit">
               Submit
             </button>
-          </div>
-        </form>
-      </div>
-    </footer>
+          </form>
+        </div>
+      {formSubmitted && (
+        <div className="listing-card">
+          <img src={CustomOrder} alt="Custom Order" className="listing-image" />
+          <h4>{name}</h4>
+          <p>Description: {description}</p>
+          <p>Materials: {materials}</p>
+          <p>Price: $50</p>
+        </div>
+      )}
+    </div>
   );
 };
 
 export default Footer;
+
+
+
+
+

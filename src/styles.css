@@ -6,7 +6,6 @@
 }
 
 body{
-    
     background-color: azure;
 }
 
@@ -43,13 +42,11 @@ body{
     margin-left: auto;
     margin-right: auto;
     width: 300px;
-    
 }
 
 .about{
     padding: 0 3rem;
     align-items: center;
-    
 }
 
 .about p{
@@ -84,7 +81,7 @@ hr {
 form input, textarea {
 	padding: 5px;
 	border-radius: 5px;
-	width: 100%;
+	width: 80%;
     margin-bottom: 10px;
 }
 
@@ -138,7 +135,6 @@ form input, textarea {
     text-align: center;
     color: rgb(79, 101, 102);
     font-family: 'Leelawadee UI';
-    
 }
 
 .card{
