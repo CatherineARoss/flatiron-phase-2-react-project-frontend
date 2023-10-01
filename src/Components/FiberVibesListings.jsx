@@ -6,7 +6,9 @@ import HoundHoodies from '../images/HoundHoodies.jpg';
 import ChunkyKnitBeanie from '../images/ChunkyKnitBeanie.jpg';
 import CelticWovenBabyBlanket from '../images/CelticWovenBabyBlanket.jpg';
 import KnitPumpkins from '../images/KnitPumpkins.jpg';
-
+import MountainBeanie from '../images/MountainBeanie.jpg';
+import NestingBowls from '../images/NestingBowls.jpg';
+import StitchMarkers from '../images/StitchMarkers.jpg';
 
 const FiberVibesListings = () => {
   const { cart, addToCart } = useContext(CartContext);
@@ -25,7 +27,7 @@ const FiberVibesListings = () => {
         const jsonData = await response.json();
         const listingsWithImages = jsonData.map((listing, index) => ({
           ...listing,
-          image: [WinterIsHereBlanket, WestCoasters, HoundHoodies, ChunkyKnitBeanie, CelticWovenBabyBlanket, KnitPumpkins][index],
+          image: [WinterIsHereBlanket, WestCoasters, HoundHoodies, ChunkyKnitBeanie, CelticWovenBabyBlanket, KnitPumpkins, MountainBeanie, NestingBowls, StitchMarkers][index],
         }));
         setListings(listingsWithImages);
       } catch (error) {

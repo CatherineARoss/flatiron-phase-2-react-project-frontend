@@ -81,8 +81,9 @@ hr {
 form input, textarea {
 	padding: 5px;
 	border-radius: 5px;
-	width: 80%;
+	width: 100%;
     margin-bottom: 10px;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 #submit-button {
@@ -172,7 +173,7 @@ form input, textarea {
     width: 200px;
     height: 100px;
   }
-  
+
 /*Cart Component*/
 .cart-item {
     font-family: 'Leelawadee UI';
