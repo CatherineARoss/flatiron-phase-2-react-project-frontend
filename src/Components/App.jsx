@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import NavBar from './NavBar';
 import Footer from './Footer';
@@ -8,6 +8,11 @@ import Cart from './Cart';
 import '../styles.css';
 
 function App() {
+  const [listings, setListings] = useState([]);
+
+  const addListing = (newListing) => {
+    setListings(prevListings => [...prevListings, newListing]);
+  };
   return (
     <div>
       <NavBar />
@@ -16,7 +21,7 @@ function App() {
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/" component={Home} />
       </Switch> 
-      <Footer />
+      <Footer addListing={addListing}/>
     </div>
   );
 }
