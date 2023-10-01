@@ -12,7 +12,11 @@ const Cart = () => {
       <div className="cart-items">
         {cart.map((item) => (
           <div key={item.id} className="cart-item">
-            <img className='cart-image' src={item.image} alt={item.title} />
+            {item.isCustomOrder || item.image === '' ? (
+      <div className="blank-space"></div>
+    ) : (
+              <img className='cart-image' src={item.image} alt={item.title} />
+            )}
             <div className='cart-details'>
               <h4 className='cart-title'><strong>{item.title}</strong></h4>
               <p className='cart-price'><strong>Price: $</strong>{item.price}</p>

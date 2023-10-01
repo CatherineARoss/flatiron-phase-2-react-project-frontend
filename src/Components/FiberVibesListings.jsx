@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { CartContext } from './CartContext';
-import CustomOrderDisplay from './CustomOrderDisplay';
 import WinterIsHereBlanket from '../images/WinterIsHereBlanket.jpg';
 import WestCoasters from '../images/WestCoasters.jpg';
 import HoundHoodies from '../images/HoundHoodies.jpg';
@@ -10,14 +9,14 @@ import KnitPumpkins from '../images/KnitPumpkins.jpg';
 
 
 const FiberVibesListings = () => {
-  const { addToCart } = useContext(CartContext);
+  const { cart, addToCart } = useContext(CartContext);
+
+  const [listings, setListings] = useState([]);
 
   const handleAddToCart = (listing) => {
     addToCart(listing);
     console.log('Item added to cart:', listing.title);
   };
-
-  const [listings, setListings] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,7 +34,7 @@ const FiberVibesListings = () => {
     };
 
     fetchData();
-  }, []);
+  }, [cart]);
 
   return (
     <div className="card-container">
@@ -43,7 +42,7 @@ const FiberVibesListings = () => {
       <div className="cards">
         {listings.map((listing) => (
           <div className="card" key={listing.id}>
-            {listing.image && <img src={listing.image} alt={listing.title} className="listing-image" />}
+            {!listing.isCustomOrder && listing.image && <img src={listing.image} alt={listing.title} className="listing-image" />}
             <div className="card-content">
               <h2>{listing.title}</h2>
               <p><strong>Description:</strong> {listing.description}</p>

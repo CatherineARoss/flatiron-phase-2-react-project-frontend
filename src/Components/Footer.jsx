@@ -36,6 +36,7 @@ const Footer = ({ addListing }) => {
             description,
             materials,
             price: 10,
+            isCustomOrder: true,
           };
         
 

@@ -167,6 +167,12 @@ form input, textarea {
     position: absolute; left: 25px; bottom: 15px;
 }
 
+/*CustomOrderDisplay*/
+.blank-space {
+    width: 200px;
+    height: 100px;
+  }
+  
 /*Cart Component*/
 .cart-item {
     font-family: 'Leelawadee UI';
